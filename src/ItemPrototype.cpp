@@ -20,4 +20,4 @@ public:
 	{
 		cout << "Potion is created\n";
 	}
-}
+};
