@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string>
+using namespace std;
 
 //Abstract Class
 class Item
@@ -6,11 +8,21 @@ class Item
 public:
 	virtual Item* clone() = 0;
 	virtual void printItem() = 0;
+	string getType()
+	{
+		return type;
+	}
+protected:
+	string type;
 };
 
 class Potion : public Item
 {
 public:
+	Potion()
+	{
+		type = "Potion";
+	}
 	Item* clone()
 	{
 		return new Potion;
@@ -24,6 +36,10 @@ public:
 class Antidote : public Item
 {
 public:
+	Antidote()
+	{
+		type = "Antidote";
+	}
 	Item* clone()
 	{
 		return new Antidote;
