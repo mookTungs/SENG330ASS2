@@ -33,3 +33,16 @@ public:
 		cout << "Antidote is created\n";
 	}
 };
+
+class ItemFactory
+{
+	Item* potion;
+	Item* antidote;
+public:
+	void initialize()
+	{
+		potion = new Potion();
+		antidote = new Antidote();
+	}
+
+};
