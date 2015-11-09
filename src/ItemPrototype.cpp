@@ -44,5 +44,12 @@ public:
 		potion = new Potion();
 		antidote = new Antidote();
 	}
-
+	Item* makePotion()
+	{
+		return potion->clone();
+	}
+	Item* makeAntidote()
+	{
+		return antidote->clone();
+	}
 };
