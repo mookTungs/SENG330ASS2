@@ -6,14 +6,19 @@ using namespace std;
 class Item
 {
 public:
-	virtual Item* clone() = 0;
+	virtual Item* clone(string name) = 0;
 	virtual void printItem() = 0;
 	string getType()
 	{
-		return type;
+		return itemType;
+	}
+	string getName()
+	{
+		return itemName;
 	}
 protected:
-	string type;
+	string itemType;
+	string itemName;
 };
 
 class Potion : public Item
@@ -21,10 +26,11 @@ class Potion : public Item
 public:
 	Potion()
 	{
-		type = "Potion";
+		itemType = "Potion";
 	}
-	Item* clone()
+	Item* clone(string name)
 	{
+		itemName = name;
 		return new Potion;
 	}
 	void printItem()
@@ -38,10 +44,11 @@ class Antidote : public Item
 public:
 	Antidote()
 	{
-		type = "Antidote";
+		itemType = "Antidote";
 	}
-	Item* clone()
+	Item* clone(string name)
 	{
+		itemName = name;
 		return new Antidote;
 	}
 	void printItem()
@@ -60,12 +67,17 @@ public:
 		potion = new Potion();
 		antidote = new Antidote();
 	}
-	Item* makePotion()
+	Item* makePotion(string name)
 	{
-		return potion->clone();
+		return potion->clone(name);
 	}
-	Item* makeAntidote()
+	Item* makeAntidote(string name)
 	{
-		return antidote->clone();
+		return antidote->clone(name);
 	}
 };
+
+int main()
+{
+	return 0;
+}
