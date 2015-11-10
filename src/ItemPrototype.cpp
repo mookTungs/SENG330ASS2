@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
 //Abstract Class
@@ -7,7 +8,10 @@ class Item
 {
 public:
 	virtual Item* clone(string name) = 0;
-	virtual void printItem() = 0;
+	void printItem()
+	{
+		cout<< getType() << " named " << getName() << " is created.\n";
+	}
 	string getType()
 	{
 		return itemType;
@@ -24,48 +28,40 @@ protected:
 class Potion : public Item
 {
 public:
-	Potion()
+	Potion(string name)
 	{
+		itemName = name;
 		itemType = "Potion";
 	}
 	Item* clone(string name)
 	{
-		itemName = name;
-		return new Potion;
-	}
-	void printItem()
-	{
-		cout << "Potion is created\n";
+		return new Potion(name);
 	}
 };
 
 class Antidote : public Item
 {
 public:
-	Antidote()
+	Antidote(string name)
 	{
+		itemName = name;
 		itemType = "Antidote";
 	}
 	Item* clone(string name)
 	{
-		itemName = name;
-		return new Antidote;
-	}
-	void printItem()
-	{
-		cout << "Antidote is created\n";
+		return new Antidote(name);
 	}
 };
 
 class ItemFactory
 {
-	Item* potion;
-	Item* antidote;
 public:
-	void initialize()
+	static Item* potion = 0;
+	static Item* antidote = 0;
+	static void initialize()
 	{
-		potion = new Potion();
-		antidote = new Antidote();
+		potion = new Potion("Prototype Potion");
+		antidote = new Antidote("Prototype Antidote");
 	}
 	Item* makePotion(string name)
 	{
