@@ -95,11 +95,17 @@ int main()
 		{
 			cout<< "Name:\n>> ";
 			cin>> objectName;
+			object = ItemFactory::makePotion(objectName);
+			objectList.push_back(object);
+			object->printItem();
 		}
 		else if(objectType.compare("antidote") == 0)
 		{
 			cout<< "Name:\n>> ";
 			cin>> objectName;
+			object = ItemFactory::makeAntidote(objectName);
+			objectList.push_back(object);
+			object->printItem();
 		}
 		else if(objectType.compare("exit") == 0)
 		{
