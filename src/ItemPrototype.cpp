@@ -63,17 +63,54 @@ public:
 		potion = new Potion("Prototype Potion");
 		antidote = new Antidote("Prototype Antidote");
 	}
-	Item* makePotion(string name)
+	static Item* makePotion(string name)
 	{
 		return potion->clone(name);
 	}
-	Item* makeAntidote(string name)
+	static Item* makeAntidote(string name)
 	{
 		return antidote->clone(name);
 	}
 };
 
+Item* ItemFactory::potion = 0;
+Item* ItemFactory::antidote = 0;
+
 int main()
 {
+	ItemFactory::initialize();
+	Item* object;
+	string objectType;
+	string objectName;
+	vector<Item*> objectList;
+	cout<< "Types of object: potion, antidote\n";
+	cout<< "Example: if you want to create potion, type \"potion\"\n";
+	cout<< "Type \"exit\" if you want to exit the program\n";
+	while(true)
+	{
+		cout<< "Type of object:\n";
+		cout<< ">> ";
+		cin>> objectType;
+		if(objectType.compare("potion") == 0)
+		{
+			cout<< "Name:\n>> ";
+			cin>> objectName;
+		}
+		else if(objectType.compare("antidote") == 0)
+		{
+			cout<< "Name:\n>> ";
+			cin>> objectName;
+		}
+		else if(objectType.compare("exit") == 0)
+		{
+			break;
+		}
+		else
+		{
+			cout<< "Invalid of object. Please enter either \"potion\" or \"antidote\"\n";
+			cout<< "Type \"exit\" to exit the program.\n"; 
+		}
+	}
+	
 	return 0;
 }
