@@ -56,8 +56,8 @@ public:
 class ItemFactory
 {
 public:
-	static Item* potion = 0;
-	static Item* antidote = 0;
+	static Item* potion;
+	static Item* antidote;
 	static void initialize()
 	{
 		potion = new Potion("Prototype Potion");
@@ -117,6 +117,13 @@ int main()
 			cout<< "Type \"exit\" to exit the program.\n"; 
 		}
 	}
-	
+	while(!objectList.empty())
+	{
+		object = objectList.back();
+		objectList.pop_back();
+		delete object;
+	}
+	delete ItemFactory::potion;
+	delete ItemFactory::antidote;
 	return 0;
 }
