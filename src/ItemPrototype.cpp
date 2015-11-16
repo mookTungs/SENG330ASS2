@@ -114,7 +114,7 @@ public:
 	}
 };
 
-//!Serialized and store object at runtime in a file call ItemsJSON.txt.
+//!Serialized and store object at runtime in a file called ItemsJSON.txt.
 void JsonSave (vector<Item*> l)
 {
 	ofstream out("ItemsJSON.txt", ofstream::out);
@@ -129,6 +129,38 @@ void JsonSave (vector<Item*> l)
 	out.close();
 }
 
+//!Read and load the objects previously created from a file called ItemsJSON.txt.
+void JsonLoad(vector<Item*> &l)
+{
+	Item* obj;
+	string s;
+	string t;
+	ifstream in("ItemsJSON.txt");
+	if(!in)
+	{
+		return;
+	}
+	cout << "Reading from ItemsJSON.txt." << endl;
+	Json::Value item_json;
+	in >> item_json;
+	for(Json::Value::iterator it = item_json["items"].begin(); it != item_json["items"].end(); it++)
+	{
+		s = (*it)["type"].asString();
+		t = (*it)["name"].asString();
+		if(s.compare("Potion") == 0)
+		{
+			obj = ItemFactory::makePotion(t);
+		}
+		else
+		{
+			obj = ItemFactory::makeAntidote(t);
+		}
+		obj->printItem();
+		l.push_back(obj);
+	}
+	cout << endl;
+}
+
 Item* ItemFactory::potion = 0;
 Item* ItemFactory::antidote = 0;
 
@@ -139,6 +171,7 @@ int main()
 	string objectType;
 	string objectName;
 	vector<Item*> objectList;
+	JsonLoad(objectList);
 	cout << "Types of object: potion, antidote" << endl;
 	cout << "Example: if you want to create potion, type \"potion\"" << endl;
 	cout << "Type \"exit\" if you want to exit the program" << endl;
@@ -158,7 +191,7 @@ int main()
 		}
 		else if(objectType.compare("antidote") == 0)
 		{
-			cout << "Name:" << endl;
+			cout << "Name: " << endl;
 			cout << ">> ";
 			cin >> objectName;
 			object = ItemFactory::makeAntidote(objectName);
@@ -171,13 +204,14 @@ int main()
 		}
 		else
 		{
-			cout<< "Invalid object. Please enter either \"potion\" or \"antidote\"" << endl;
-			cout<< "Type \"exit\" to exit the program." << endl; 
+			cout << "Invalid object. Please enter either \"potion\" or \"antidote\"" << endl;
+			cout << "Type \"exit\" to exit the program." << endl; 
 		}
 	}
 	if(!objectList.empty())
 	{
 		JsonSave(objectList);
+		cout << "Objects have been saved in a file called ItemJSON.txt." << endl;
 	}
 	while(!objectList.empty())
 	{
