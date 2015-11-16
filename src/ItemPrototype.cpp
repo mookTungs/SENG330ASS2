@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <fstream>
 #include "json/json.h"
 
 using namespace std;
@@ -14,7 +15,7 @@ public:
 	//!Print out statement confirming object has been created.
 	void printItem()
 	{
-		cout<< getType() << " named " << getName() << " is created.\n";
+		cout<< getType() << " named " << getName() << " is created." << endl;
 	}
 	//!Return the type of the object.
 	string getType()
@@ -113,6 +114,21 @@ public:
 	}
 };
 
+//!Serialized and store object at runtime in a file call ItemsJSON.txt.
+void JsonSave (vector<Item*> l)
+{
+	ofstream out("ItemsJSON.txt", ofstream::out);
+	Json::Value itemList_json(Json::objectValue);
+	Json::Value items_json(Json::arrayValue);
+	for(vector<Item*>::iterator it = l.begin(); it != l.end(); it++)
+	{
+		items_json.append((*it)->toJson());
+	}
+	itemList_json["items"] = items_json;
+	out << itemList_json;
+	out.close();
+}
+
 Item* ItemFactory::potion = 0;
 Item* ItemFactory::antidote = 0;
 
@@ -123,26 +139,28 @@ int main()
 	string objectType;
 	string objectName;
 	vector<Item*> objectList;
-	cout<< "Types of object: potion, antidote\n";
-	cout<< "Example: if you want to create potion, type \"potion\"\n";
-	cout<< "Type \"exit\" if you want to exit the program\n";
+	cout << "Types of object: potion, antidote" << endl;
+	cout << "Example: if you want to create potion, type \"potion\"" << endl;
+	cout << "Type \"exit\" if you want to exit the program" << endl;
 	while(true)
 	{
-		cout<< "Type of object:\n";
-		cout<< ">> ";
-		cin>> objectType;
+		cout << "Type of object:" << endl;
+		cout << ">> ";
+		cin >> objectType;
 		if(objectType.compare("potion") == 0)
 		{
-			cout<< "Name:\n>> ";
-			cin>> objectName;
+			cout << "Name:" << endl;
+			cout << ">> ";
+			cin >> objectName;
 			object = ItemFactory::makePotion(objectName);
 			objectList.push_back(object);
 			object->printItem();
 		}
 		else if(objectType.compare("antidote") == 0)
 		{
-			cout<< "Name:\n>> ";
-			cin>> objectName;
+			cout << "Name:" << endl;
+			cout << ">> ";
+			cin >> objectName;
 			object = ItemFactory::makeAntidote(objectName);
 			objectList.push_back(object);
 			object->printItem();
@@ -153,9 +171,13 @@ int main()
 		}
 		else
 		{
-			cout<< "Invalid object. Please enter either \"potion\" or \"antidote\"\n";
-			cout<< "Type \"exit\" to exit the program.\n"; 
+			cout<< "Invalid object. Please enter either \"potion\" or \"antidote\"" << endl;
+			cout<< "Type \"exit\" to exit the program." << endl; 
 		}
+	}
+	if(!objectList.empty())
+	{
+		JsonSave(objectList);
 	}
 	while(!objectList.empty())
 	{
