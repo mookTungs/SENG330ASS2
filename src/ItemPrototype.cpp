@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "json/json.h"
+
 using namespace std;
 
 //!Abstract Item Class
@@ -23,6 +25,14 @@ public:
 	string getName()
 	{
 		return itemName;
+	}
+	//!creating a JSON object 
+	Json::Value toJson() const
+	{
+		Json::Value object(Json::objectValue);
+		object["name"] = itemName;
+		object["type"] = itemType;
+		return object;
 	}
 protected:
 	//!Store the type of the object.
