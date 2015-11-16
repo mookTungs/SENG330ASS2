@@ -143,7 +143,7 @@ int main()
 		}
 		else
 		{
-			cout<< "Invalid of object. Please enter either \"potion\" or \"antidote\"\n";
+			cout<< "Invalid object. Please enter either \"potion\" or \"antidote\"\n";
 			cout<< "Type \"exit\" to exit the program.\n"; 
 		}
 	}
