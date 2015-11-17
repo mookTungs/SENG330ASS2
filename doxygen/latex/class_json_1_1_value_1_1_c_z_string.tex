@@ -1,0 +1,76 @@
+\hypertarget{class_json_1_1_value_1_1_c_z_string}{}\section{Json\+:\+:Value\+:\+:C\+Z\+String Class Reference}
+\label{class_json_1_1_value_1_1_c_z_string}\index{Json\+::\+Value\+::\+C\+Z\+String@{Json\+::\+Value\+::\+C\+Z\+String}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_json_1_1_value_1_1_c_z_string_1_1_string_storage}{String\+Storage}
+\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_json_1_1_value_1_1_c_z_string_a2805c46fb4a72bbaed55de6d75941b6d}{}enum {\bfseries Duplication\+Policy} \{ {\bfseries no\+Duplication} = 0, 
+{\bfseries duplicate}, 
+{\bfseries duplicate\+On\+Copy}
+ \}\label{class_json_1_1_value_1_1_c_z_string_a2805c46fb4a72bbaed55de6d75941b6d}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_json_1_1_value_1_1_c_z_string_a4b8aa6eaabdec78cffec96e088da996f}{}{\bfseries C\+Z\+String} (Array\+Index index)\label{class_json_1_1_value_1_1_c_z_string_a4b8aa6eaabdec78cffec96e088da996f}
+
+\item 
+\hypertarget{class_json_1_1_value_1_1_c_z_string_a86a86eaf0cf26d4c861d0daa359d608a}{}{\bfseries C\+Z\+String} (char const $\ast$str, unsigned length, Duplication\+Policy allocate)\label{class_json_1_1_value_1_1_c_z_string_a86a86eaf0cf26d4c861d0daa359d608a}
+
+\item 
+\hypertarget{class_json_1_1_value_1_1_c_z_string_a9685070d440335b55ef5c85747d25157}{}{\bfseries C\+Z\+String} (\hyperlink{class_json_1_1_value_1_1_c_z_string}{C\+Z\+String} const \&other)\label{class_json_1_1_value_1_1_c_z_string_a9685070d440335b55ef5c85747d25157}
+
+\item 
+\hypertarget{class_json_1_1_value_1_1_c_z_string_a6513ff431b0593d5744868dfee739f7b}{}\hyperlink{class_json_1_1_value_1_1_c_z_string}{C\+Z\+String} \& {\bfseries operator=} (\hyperlink{class_json_1_1_value_1_1_c_z_string}{C\+Z\+String} other)\label{class_json_1_1_value_1_1_c_z_string_a6513ff431b0593d5744868dfee739f7b}
+
+\item 
+\hypertarget{class_json_1_1_value_1_1_c_z_string_a5e88edf9f7443c77d6b70e409a0b5983}{}bool {\bfseries operator$<$} (\hyperlink{class_json_1_1_value_1_1_c_z_string}{C\+Z\+String} const \&other) const \label{class_json_1_1_value_1_1_c_z_string_a5e88edf9f7443c77d6b70e409a0b5983}
+
+\item 
+\hypertarget{class_json_1_1_value_1_1_c_z_string_af7a3b51ccf1bb205210c6b9a570093bc}{}bool {\bfseries operator==} (\hyperlink{class_json_1_1_value_1_1_c_z_string}{C\+Z\+String} const \&other) const \label{class_json_1_1_value_1_1_c_z_string_af7a3b51ccf1bb205210c6b9a570093bc}
+
+\item 
+\hypertarget{class_json_1_1_value_1_1_c_z_string_a4e9f305dbc4a4700abd955fde673a01c}{}Array\+Index {\bfseries index} () const \label{class_json_1_1_value_1_1_c_z_string_a4e9f305dbc4a4700abd955fde673a01c}
+
+\item 
+\hypertarget{class_json_1_1_value_1_1_c_z_string_a02482793b88b1062c4a0dd0a53f3d2a7}{}char const $\ast$ {\bfseries data} () const \label{class_json_1_1_value_1_1_c_z_string_a02482793b88b1062c4a0dd0a53f3d2a7}
+
+\item 
+\hypertarget{class_json_1_1_value_1_1_c_z_string_a4e697840c41fb56756be7a75efa114cb}{}unsigned {\bfseries length} () const \label{class_json_1_1_value_1_1_c_z_string_a4e697840c41fb56756be7a75efa114cb}
+
+\item 
+\hypertarget{class_json_1_1_value_1_1_c_z_string_af3cc02b77c2cd79d4646fcea3575c1fd}{}bool {\bfseries is\+Static\+String} () const \label{class_json_1_1_value_1_1_c_z_string_af3cc02b77c2cd79d4646fcea3575c1fd}
+
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_json_1_1_value_1_1_c_z_string_ad59f3542d2eea749a6a63409d1a02207}{}void {\bfseries swap} (\hyperlink{class_json_1_1_value_1_1_c_z_string}{C\+Z\+String} \&other)\label{class_json_1_1_value_1_1_c_z_string_ad59f3542d2eea749a6a63409d1a02207}
+
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_json_1_1_value_1_1_c_z_string_a5b4d28349294034d7f779c3c95d0306c}{}char const $\ast$ {\bfseries cstr\+\_\+}\label{class_json_1_1_value_1_1_c_z_string_a5b4d28349294034d7f779c3c95d0306c}
+
+\item 
+\hypertarget{class_json_1_1_value_1_1_c_z_string_a6f6b20ee7c8873fba58100f869ca2e5e}{}\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>ArrayIndex {\bfseries index\_}\\
+\>\hyperlink{struct_json_1_1_value_1_1_c_z_string_1_1_string_storage}{StringStorage} {\bfseries storage\_}\\
+\}; \label{class_json_1_1_value_1_1_c_z_string_a6f6b20ee7c8873fba58100f869ca2e5e}
+\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Mook T/\+Desktop/item/json.\+h\item 
+C\+:/\+Users/\+Mook T/\+Desktop/item/jsoncpp.\+cpp\end{DoxyCompactItemize}
