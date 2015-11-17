@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['demand',['demand',['../class_json_1_1_value.html#afeb7ff596a0929d90c5f2f3cffb413ed',1,'Json::Value']]],
-  ['dropnullplaceholders',['dropNullPlaceholders',['../class_json_1_1_fast_writer.html#a6e93d8dce951e408517311026a065b40',1,'Json::FastWriter']]],
-  ['duplicatestringvalue',['duplicateStringValue',['../namespace_json.html#a678ac3a60cd70ec0fb4c9abfd40eb0c4',1,'Json']]]
+  ['getname',['getName',['../class_item.html#a63d7f2148b699e539aae354b01559811',1,'Item']]],
+  ['gettype',['getType',['../class_item.html#a2aea1cc560205b01eaf5250c21f4fc71',1,'Item']]]
 ];
