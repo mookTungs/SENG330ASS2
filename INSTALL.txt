@@ -2,3 +2,5 @@ How to build:
 1)	Download all the source code from the src folder from  https://github.com/mookTungs/SENG330ASS2
 2)	Compile all the .cpp files
 3)	Run the executable
+
+Objects that are created at run-time are automatically store in a file called ItemsJSON.txt
